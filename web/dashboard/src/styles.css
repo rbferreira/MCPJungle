@@ -67,7 +67,6 @@
   --bad-hover: rgba(248, 81, 73, 0.1);
   --danger-border: rgba(248, 81, 73, 0.3);
   --danger-text: #f85149;
-  --knob-color: #1f883d;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.2);
   --shadow-modal: 0 24px 80px rgba(0, 0, 0, 0.5);
   --backdrop: rgba(0, 0, 0, 0.6);
@@ -77,6 +76,36 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+.sidebar,
+.sidebar-link,
+.nav-item,
+.panel,
+.hero-card,
+.metric-card,
+.diag-card,
+.hint-card,
+.server-row,
+.status-badge,
+.copy-button,
+.secondary-action,
+.primary-action,
+.danger-action,
+.table-filter,
+.version-chip,
+.topbar-endpoint,
+.brand-beta,
+.theme-pill-toggle,
+.theme-pill-toggle-knob,
+.theme-pill-toggle-option svg,
+.modal-backdrop,
+.modal-content,
+.endpoint-row,
+.command-chip,
+.tool-detail-meta div,
+.schema-field-card,
+.tool-state-line {
   transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -1415,9 +1444,16 @@ button:disabled {
   flex: 0 0 auto;
 }
 
-.theme-pill-toggle:has(.theme-pill-toggle-option:focus-visible) {
+.theme-pill-toggle:focus-within {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+@supports selector(:has(*)) {
+  .theme-pill-toggle:has(.theme-pill-toggle-option:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
 }
 
 .theme-pill-toggle-knob {
@@ -1473,14 +1509,6 @@ button:disabled {
 
 .theme-pill-toggle-option[aria-checked="true"] svg {
   color: #ffffff;
-}
-
-.form-input {
-  padding: 8px 10px;
-  border: 1px solid var(--border-strong);
-  border-radius: 12px;
-  background: var(--bg-elevated);
-  color: var(--text);
 }
 
 @media (max-width: 1080px) {
