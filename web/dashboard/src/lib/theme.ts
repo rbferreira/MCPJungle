@@ -1,6 +1,7 @@
 export type Theme = "light" | "dark" | "system";
 export type ResolvedTheme = "light" | "dark";
 
+// Keep in sync with the blocking bootstrap script in index.html.
 const THEME_KEY = "mcpjungle-theme";
 
 function getSystemTheme(): ResolvedTheme {
